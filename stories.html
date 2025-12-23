@@ -259,7 +259,7 @@
 
         /* Case Study Sections */
         .case-study {
-            padding: 100px 0;
+            padding: 120px 0;
             position: relative;
         }
 
@@ -277,8 +277,52 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Decorative divider between case studies */
+        .case-study-divider {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #e8f4ff 0%, #f0f7ff 50%, #ffffff 100%);
+            position: relative;
+        }
+
+        .case-study-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(20px);
+        }
+
+        .divider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .divider-dots span {
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .divider-dots span:nth-child(2) {
+            opacity: 0.8;
+            width: 10px;
+            height: 10px;
         }
 
         .case-study-header {
@@ -436,23 +480,46 @@
         }
 
         /* Tech tags */
+        .tech-section {
+            margin-top: 40px;
+            padding: 28px 32px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .tech-section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            display: block;
+        }
+
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .tech-tag {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: #64748b;
-            padding: 6px 14px;
-            background: rgba(59, 130, 246, 0.08);
-            border-radius: 20px;
-            border: 1px solid rgba(59, 130, 246, 0.15);
+            color: #334155;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+            transition: all 0.2s ease;
+        }
+
+        .tech-tag:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+            transform: translateY(-1px);
         }
 
         /* Final CTA */
@@ -681,9 +748,9 @@
         <div class="hero-blob-2"></div>
         <div class="hero-grid"></div>
         <div class="container">
-            <h1>How It Actually Works</h1>
+            <h1>From Chaos to Systems</h1>
             <p class="hero-lead">
-                Real problems I solved for a real operation. These aren't hypotheticals—they're systems running in production right now, processing hundreds of orders daily.
+                These aren't hypotheticals. These are systems I built that run in production every day—processing hundreds of orders, managing a team, and keeping a $1M+/month operation from falling apart.
             </p>
         </div>
     </section>
@@ -705,7 +772,7 @@
             <div class="case-study-header">
                 <span class="case-study-number">Case Study 01</span>
                 <h2 class="case-study-title">Label Grabber</h2>
-                <p class="case-study-subtitle">Unified shipping label management that turned a 4-hour daily task into 15 minutes.</p>
+                <p class="case-study-subtitle">Multi-platform shipping label automation that eliminated 4 hours of daily manual work.</p>
             </div>
 
             <div class="story-card problem-card fade-in-up">
@@ -719,15 +786,15 @@
                     </span>
                     The Problem
                 </h3>
-                <p>We sell on multiple platforms—StockX, our own Shopify, Veeqo for inventory management. Every day we ship hundreds of packages. The old process was brutal:</p>
+                <p>We sell across multiple platforms—StockX, Shopify, and Veeqo handles our inventory. Every single day, we ship 500+ packages. Before Label Grabber, the process looked like this:</p>
                 <ol>
-                    <li>Go to StockX, find the orders, download shipping labels one by one</li>
-                    <li>Go to Veeqo, do the same thing</li>
-                    <li>Try to match labels to the right products in the warehouse</li>
-                    <li>Print everything separately</li>
-                    <li>Hope nothing gets mixed up</li>
+                    <li>Log into StockX. Find pending orders. Click into each one. Download the shipping label. Repeat 50+ times.</li>
+                    <li>Switch to Veeqo. Same thing. Another 50+ clicks.</li>
+                    <li>Now try to figure out which label goes with which product in the warehouse.</li>
+                    <li>Print them all separately. Walk around matching labels to items.</li>
+                    <li>Cross your fingers that nothing gets mixed up.</li>
                 </ol>
-                <p>This took hours. Every. Single. Day. And when you're processing 500+ orders daily, one wrong label means a $300 shoe goes to the wrong person. Chargebacks, angry customers, lost inventory.</p>
+                <p>This wasn't just slow—it was dangerous. At our volume, one mislabeled package means a $300 pair of sneakers ships to the wrong customer. That's a chargeback, an angry buyer, and inventory we can't recover. We were bleeding time and money.</p>
             </div>
 
             <div class="story-card solution-card fade-in-up">
@@ -739,15 +806,15 @@
                     </span>
                     What I Built
                 </h3>
-                <p>A unified label management system that connects everything:</p>
+                <p>I built a web app that connects directly to StockX and Veeqo's APIs and consolidates the entire fulfillment workflow into one interface.</p>
+                <p><strong>Here's how it works:</strong></p>
                 <ul>
-                    <li><strong>Connects to StockX and Veeqo APIs</strong> — pulls all pending orders into one dashboard</li>
-                    <li><strong>Generates pick lists automatically</strong> — knows what to grab from the warehouse</li>
-                    <li><strong>Downloads all shipping labels in batch</strong> — no more clicking through one by one</li>
-                    <li><strong>Merges them into a single PDF</strong> — organized by location in the warehouse</li>
-                    <li><strong>Tracks workflow progress</strong> — Pick List → Labels → Download → Complete</li>
+                    <li><strong>One dashboard for all orders.</strong> The system pulls pending orders from every platform automatically. No more logging into three different sites.</li>
+                    <li><strong>Smart pick list generation.</strong> Click a button, get a pick list organized by warehouse location. The warehouse team knows exactly what to grab and where to find it.</li>
+                    <li><strong>Batch label download.</strong> Instead of downloading labels one by one, the system fetches all of them in parallel, merges them into a single PDF, and organizes them to match the pick list order.</li>
+                    <li><strong>Visual workflow tracking.</strong> A progress indicator shows exactly where you are: Pick List → Purchase Labels → Download → Complete. No guessing, no missed steps.</li>
                 </ul>
-                <p>The interface shows everything in one place. Select your orders, hit "Download Pick List" to know what to grab, hit "Download Labels" to get everything merged and ready to print.</p>
+                <p>The warehouse team opens the app, selects the orders they're working on, prints the pick list, grabs the products, then prints the merged labels. Everything matches. Every time.</p>
             </div>
 
             <div class="story-card results-card fade-in-up">
@@ -764,38 +831,50 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>3-4 hours → 15 minutes</strong> — what took half a day now takes a coffee break</span>
+                        <span><strong>3-4 hours → 15 minutes.</strong> What used to eat up half a workday now happens during a coffee break.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Zero label mix-ups</strong> since implementation</span>
+                        <span><strong>Zero mislabeled packages</strong> since launch. The system makes it impossible to mix things up.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Warehouse independence</strong> — team can work without waiting on office staff</span>
+                        <span><strong>Warehouse runs independently.</strong> The team doesn't need someone in the office clicking buttons anymore.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Scales automatically</strong> — whether it's 50 orders or 500</span>
+                        <span><strong>Handles any volume.</strong> 50 orders or 500—same process, same speed.</span>
                     </div>
                 </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">REST APIs</span>
-                    <span class="tech-tag">StockX API</span>
-                    <span class="tech-tag">Veeqo API</span>
-                    <span class="tech-tag">PDF Generation</span>
-                    <span class="tech-tag">Chrome Extension</span>
+                <div class="tech-section">
+                    <span class="tech-section-label">Built With</span>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">StockX API</span>
+                        <span class="tech-tag">Veeqo API</span>
+                        <span class="tech-tag">PDF Generation</span>
+                        <span class="tech-tag">Web App</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Divider -->
+    <div class="case-study-divider">
+        <div class="divider-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 
     <!-- Case Study 2: Pick Lists & Show Mixes -->
     <section class="case-study" id="pick-lists">
@@ -817,16 +896,17 @@
                     </span>
                     The Problem
                 </h3>
-                <p>We run live selling shows on streaming platforms. Every show needs a "mix"—a selection of products to feature. The old way was chaos:</p>
+                <p>We run 15+ live selling shows per week. Each show features 100-200 products. That means someone has to decide which 100-200 items—out of thousands in inventory—should go on air. And they need to do it in a way that makes sense for both the audience and the warehouse team pulling the products.</p>
+                <p>Before the system, show prep looked like this:</p>
                 <ol>
-                    <li>Manually look through inventory spreadsheet</li>
-                    <li>Try to remember what sold well before</li>
-                    <li>Guess at sizes (do we have smalls? mediums? who knows)</li>
-                    <li>Build a pick list by hand</li>
-                    <li>Walk the warehouse grabbing items</li>
-                    <li>Realize half the stuff is in the wrong spot or already sold</li>
+                    <li>Open a massive spreadsheet with 5,000+ SKUs. Scroll. Scroll more.</li>
+                    <li>"What sizes do we have in this?" Check another tab. Check the warehouse. Still not sure.</li>
+                    <li>Pick items based on gut feeling—no data on what actually sells.</li>
+                    <li>Type up a pick list by hand. Hope you spelled the bin locations right.</li>
+                    <li>Warehouse team walks back and forth across the floor because items are scattered everywhere.</li>
+                    <li>Mid-show: "Sorry, we don't have that in your size." Customer leaves.</li>
                 </ol>
-                <p>Shows were chaotic. We'd run out of popular sizes mid-stream. We'd grab stuff that was already allocated to other orders. The warehouse was a mess of "where did that go?"</p>
+                <p>Shows felt random. Some performed well, others tanked—and nobody could explain why. The team was spending 2+ hours prepping each show, and still walking into streams without confidence in what they were selling.</p>
             </div>
 
             <div class="story-card solution-card fade-in-up">
@@ -838,16 +918,15 @@
                     </span>
                     What I Built
                 </h3>
-                <p>An intelligent pick list system with what I call "BAE" (size intelligence) logic:</p>
+                <p>I built an intelligent pick list generator that takes the guesswork out of show prep. It connects directly to our inventory system and applies logic I developed based on months of sales data:</p>
                 <ul>
-                    <li><strong>Pulls real-time inventory</strong> with complete size breakdown</li>
-                    <li><strong>Knows what sizes actually sell</strong> — smalls go fast, XXL sits</li>
-                    <li><strong>Anti-clustering algorithm</strong> — doesn't put all the same brand/style together</li>
-                    <li><strong>Warehouse location mapping</strong> — generates efficient pick routes</li>
-                    <li><strong>Auto-excludes allocated items</strong> — nothing that's already promised to another order</li>
-                    <li><strong>Creates optimized show mixes</strong> — variety, price points, sizes available</li>
+                    <li><strong>Size intelligence ("BAE" logic).</strong> The system knows which sizes actually sell. Smalls and mediums move fast—XXL sits for months. It prioritizes inventory that will actually convert during a show.</li>
+                    <li><strong>Anti-clustering algorithm.</strong> It won't put five Nike hoodies in a row. The mix is automatically varied—different brands, styles, and price points spread throughout the show to keep viewers engaged.</li>
+                    <li><strong>Real-time inventory sync.</strong> Every pick list reflects what's actually in stock right now. If something sold on Shopify ten minutes ago, it's already excluded.</li>
+                    <li><strong>Warehouse-optimized routes.</strong> Items are sorted by bin location so the warehouse team picks in a logical path instead of zigzagging across the floor.</li>
+                    <li><strong>Allocated item exclusion.</strong> If an item is already promised to a pending order, it won't appear in a show mix. No more double-selling.</li>
                 </ul>
-                <p>The algorithm considers historical sell-through rate by size, current inventory depth, platform-specific preferences, warehouse bin locations, and buffer stock rules. It doesn't just pick random stuff—it picks stuff that will actually sell.</p>
+                <p>You tell it how many items you want and what vibe you're going for. It spits out a curated mix with every size breakdown, bin location, and historical performance note you need.</p>
             </div>
 
             <div class="story-card results-card fade-in-up">
@@ -864,37 +943,49 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>2 hours → 20 minutes</strong> for show prep</span>
+                        <span><strong>2 hours → 20 minutes.</strong> Show prep that used to drain an entire morning now happens before the first coffee is cold.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>40% reduction</strong> in "out of stock" moments during live streams</span>
+                        <span><strong>40% fewer "out of stock" moments</strong> during live streams. We stopped disappointing customers mid-purchase.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Route-optimized picks</strong> — saves walking time in warehouse</span>
+                        <span><strong>Route-optimized picks</strong> cut warehouse walking time by half. Less fatigue, faster pulls.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Better show conversions</strong> because the mix is actually good</span>
+                        <span><strong>Higher show conversions</strong> because every mix is built on data, not gut feelings.</span>
                     </div>
                 </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Google Apps Script</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Inventory APIs</span>
-                    <span class="tech-tag">Custom Algorithms</span>
-                    <span class="tech-tag">Google Sheets</span>
+                <div class="tech-section">
+                    <span class="tech-section-label">Built With</span>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Google Apps Script</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Inventory APIs</span>
+                        <span class="tech-tag">Custom Algorithms</span>
+                        <span class="tech-tag">Google Sheets</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Divider -->
+    <div class="case-study-divider">
+        <div class="divider-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 
     <!-- Case Study 3: Admin Dashboard -->
     <section class="case-study" id="admin-dashboard">
@@ -916,15 +1007,16 @@
                     </span>
                     The Problem
                 </h3>
-                <p>We have a team of streamers who host live selling shows. Managing them was a nightmare:</p>
+                <p>Managing a team of live selling streamers is harder than it sounds. We're not talking about a traditional sales team—these are performers who go live on camera, work variable hours, and earn based on complex commission structures that change constantly.</p>
+                <p>Before the system, the management layer was duct tape and spreadsheets:</p>
                 <ul>
-                    <li><strong>Schedules in a Google Doc</strong> that nobody updated</li>
-                    <li><strong>Commission calculations done by hand</strong> in a spreadsheet (took 4+ hours weekly)</li>
-                    <li><strong>No visibility into performance</strong> — who was actually selling?</li>
-                    <li><strong>Onboarding docs scattered</strong> across email, Drive, Slack</li>
-                    <li><strong>Constant questions</strong> — "when do I work?" and "how much did I make?"</li>
+                    <li><strong>Schedules lived in a Google Doc</strong> that nobody maintained. Double-bookings happened weekly.</li>
+                    <li><strong>Commission calculations took 4+ hours every pay period.</strong> Someone had to manually cross-reference sales data, hours worked, bonus tiers, and tips—then pray they didn't make a math error.</li>
+                    <li><strong>Performance was a mystery.</strong> We knew someone was selling, but who? How much? What's their units-per-hour? No idea.</li>
+                    <li><strong>Onboarding was chaos.</strong> Training docs in email, NDAs in DocuSign, schedules in Slack, payroll forms somewhere else. New hires were lost before day one.</li>
+                    <li><strong>Constant interruptions.</strong> "When do I work next week?" "How much did I make last show?" "Where's that document you sent me?" Management became a help desk.</li>
                 </ul>
-                <p>Management was flying blind. Streamers were frustrated. Payroll was a nightmare every single week.</p>
+                <p>Every week, someone on the management side spent half their time answering questions that should have been self-service. And every payroll cycle felt like defusing a bomb.</p>
             </div>
 
             <div class="story-card solution-card fade-in-up">
@@ -936,25 +1028,23 @@
                     </span>
                     What I Built
                 </h3>
-                <p>Two connected systems that talk to each other:</p>
-                <p><strong>Admin Dashboard (internal)</strong></p>
+                <p>I built two interconnected systems—one for management, one for the team—that share the same data but serve different purposes.</p>
+                <p><strong>The Admin Dashboard</strong> is the command center for operations:</p>
                 <ul>
-                    <li>Real-time P&L by streamer, by show, by platform</li>
-                    <li>Commission engine with custom rules (base rate, performance tiers, bonuses, incentives)</li>
-                    <li>Schedule management with conflict detection</li>
-                    <li>Performance analytics: units per hour, average sale price, conversion rate</li>
-                    <li>Automated payroll reports ready for export</li>
+                    <li><strong>Real-time P&L breakdown.</strong> See profitability by streamer, by show, by platform—updated as sales happen.</li>
+                    <li><strong>Automated commission engine.</strong> Define the rules once (base rate + per-unit bonus + tier multipliers + incentives + tips), and the system calculates everything automatically. One click generates the payroll export.</li>
+                    <li><strong>Schedule management with conflict detection.</strong> Can't accidentally book two people for the same slot. The system catches it before you save.</li>
+                    <li><strong>Performance analytics.</strong> Units per hour, average sale value, conversion rate, show-over-show trends—all the metrics needed to coach the team.</li>
                 </ul>
-                <p><strong>Streamer Portal (employee-facing)</strong></p>
+                <p><strong>The Streamer Portal</strong> is what the team sees:</p>
                 <ul>
-                    <li>Personal dashboard: "Hey [Name]! Here's your performance"</li>
-                    <li>See their own stats: units sold, earnings, hours streamed</li>
-                    <li>View schedule and submit availability</li>
-                    <li>Access training resources and documents</li>
-                    <li>Sign required documents (NDA, non-compete) electronically</li>
-                    <li>Real-time leaderboard for healthy competition</li>
+                    <li><strong>Personal performance dashboard.</strong> Earnings, units sold, hours streamed—presented clearly with comparisons to their own history.</li>
+                    <li><strong>Schedule visibility.</strong> See upcoming shifts, submit availability, request changes—all in one place.</li>
+                    <li><strong>Document hub.</strong> Training materials, company policies, and everything they need to do their job, organized and searchable.</li>
+                    <li><strong>E-signatures built in.</strong> NDAs, non-competes, acknowledgments—signed electronically and stored automatically.</li>
+                    <li><strong>Leaderboard.</strong> Healthy competition with visibility into team performance (anonymized or not, depending on settings).</li>
                 </ul>
-                <p>The commission engine handles complex logic: base hourly rate, per-unit bonuses based on benchmarks, tiered multipliers for hitting targets, special incentive periods, and automatic tip calculations from streams.</p>
+                <p>Both systems sync in real-time. When a sale happens, the streamer sees their stats update. When management adjusts a schedule, the streamer's calendar reflects it instantly.</p>
             </div>
 
             <div class="story-card results-card fade-in-up">
@@ -971,47 +1061,50 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Commission calculation: 4 hours → 10 minutes</strong></span>
+                        <span><strong>Commission calculation: 4 hours → 10 minutes.</strong> What used to be a weekly headache became a button click.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Zero payroll errors</strong> since launch</span>
+                        <span><strong>Zero payroll errors</strong> since launch. No more "you underpaid me" conversations.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Self-service stats</strong> — streamers check their own performance instead of asking</span>
+                        <span><strong>Self-service everything.</strong> Streamers stopped asking questions—they just check their portal.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Scheduling conflicts caught automatically</strong></span>
+                        <span><strong>Scheduling conflicts eliminated.</strong> The system won't let you make mistakes.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>60% faster onboarding</strong></span>
+                        <span><strong>60% faster onboarding.</strong> New hires complete everything from one dashboard.</span>
                     </div>
                     <div class="result-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span><strong>Data-driven coaching</strong> — finally know who's performing</span>
+                        <span><strong>Data-driven coaching.</strong> Finally know who's crushing it and who needs support.</span>
                     </div>
                 </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Supabase</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Real-time Sync</span>
-                    <span class="tech-tag">Custom Auth</span>
-                    <span class="tech-tag">PDF Generation</span>
-                    <span class="tech-tag">E-Signatures</span>
+                <div class="tech-section">
+                    <span class="tech-section-label">Built With</span>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Real-time Sync</span>
+                        <span class="tech-tag">Custom Auth</span>
+                        <span class="tech-tag">PDF Generation</span>
+                        <span class="tech-tag">E-Signatures</span>
+                    </div>
                 </div>
             </div>
         </div>
