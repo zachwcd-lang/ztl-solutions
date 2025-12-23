@@ -216,22 +216,6 @@
             }
         }
 
-        /* Glow effect behind screenshot */
-        .hero-visual::before {
-            content: '';
-            position: absolute;
-            width: 90%;
-            height: 90%;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
-            filter: blur(30px);
-            z-index: -1;
-            animation: glowPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
 
         /* Floating blobs */
         .hero-blob-1 {
