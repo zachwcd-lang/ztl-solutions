@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZTL Solutions | E-Commerce Operations That Scale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #FFFFFF;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .logo span { color: #10b981; }
+
+        .nav-cta {
+            padding: 10px 20px;
+            background: #10b981;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover { background: #059669; }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #f0fdf4;
+            border: 1px solid #d1fae5;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #059669;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 800;
+            line-height: 1.15;
+            color: #111;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 580px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: #10b981;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .hero-cta:hover { background: #059669; }
+
+        .hero-sub {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Proof Bar */
+        .proof-bar {
+            padding: 48px 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            background: #fafafa;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .proof-item .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #10b981;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .proof-item .label {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Pain Section */
+        .pain-section {
+            padding: 80px 0;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #10b981;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 48px;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pain-card {
+            padding: 28px;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .pain-card:hover {
+            border-color: #d1fae5;
+        }
+
+        .pain-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .pain-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .pain-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-section {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+
+        .how-section .section-title {
+            text-align: center;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .how-step {
+            text-align: center;
+            padding: 32px 24px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            background: #10b981;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .how-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .how-step p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* What I Build */
+        .build-section {
+            padding: 80px 0;
+        }
+
+        .build-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .build-item {
+            display: flex;
+            gap: 16px;
+            padding: 24px;
+            border: 1px solid #f0f0f0;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .build-item:hover {
+            border-color: #10b981;
+        }
+
+        .build-icon {
+            width: 44px;
+            height: 44px;
+            background: #f0fdf4;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .build-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 4px;
+        }
+
+        .build-item p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Results */
+        .results-section {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+
+        .results-section .section-title {
+            text-align: center;
+        }
+
+        .result-card {
+            max-width: 700px;
+            margin: 48px auto 0;
+            padding: 40px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+        }
+
+        .result-quote {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #111;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .result-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .result-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .result-info .name {
+            font-weight: 600;
+            color: #111;
+        }
+
+        .result-info .title {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-section .section-title {
+            text-align: center;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 48px auto 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .faq-q {
+            padding: 20px 0;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #111;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-q::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #10b981;
+            font-weight: 400;
+        }
+
+        .faq-item.open .faq-q::after {
+            content: '−';
+        }
+
+        .faq-a {
+            padding: 0 0 20px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: #f0fdf4;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .proof-grid, .pain-grid, .how-grid {
+                grid-template-columns: 1fr;
+            }
+            .build-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero { padding: 60px 0 40px; }
+            .pain-section, .how-section, .build-section, .results-section, .faq-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">ZTL<span>.</span></div>
+            <a href="#book" class="nav-cta">Book a Call</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-eyebrow">🏆 "Scaled chaos into systems" — ChatGPT 2025 Award</div>
+            <h1>Your data is collecting dust.<br>Let's put it to work.</h1>
+            <p>
+                I build the internal tools, automations, and dashboards that e-commerce teams need to scale—without hiring a dev team or waiting 6 months.
+            </p>
+            <a href="#book" class="hero-cta">
+                Book a Free Call
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <p class="hero-sub">30 min. No pitch. Just see if I can help.</p>
+        </div>
+    </section>
+
+    <!-- Proof Bar -->
+    <section class="proof-bar">
+        <div class="container">
+            <div class="proof-grid">
+                <div class="proof-item">
+                    <div class="number">$1.1M+</div>
+                    <div class="label">Monthly sales flowing through my systems</div>
+                </div>
+                <div class="proof-item">
+                    <div class="number">500+</div>
+                    <div class="label">Orders processed daily via my fulfillment tools</div>
+                </div>
+                <div class="proof-item">
+                    <div class="number">5+</div>
+                    <div class="label">Platforms integrated into one workflow</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-section">
+        <div class="container">
+            <span class="section-eyebrow">Sound familiar?</span>
+            <h2 class="section-title">These problems shouldn't still exist.</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">📊</div>
+                    <h3>Living in spreadsheets</h3>
+                    <p>You're copying and pasting between 5 tabs, 3 platforms, and a prayer. One wrong VLOOKUP and everything breaks.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">⏰</div>
+                    <h3>Drowning in manual work</h3>
+                    <p>Your team spends hours on tasks that should take minutes. Fulfillment, commissions, reporting—all done by hand.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🔌</div>
+                    <h3>Systems that don't talk</h3>
+                    <p>Shopify doesn't talk to your inventory. Your streams don't talk to your payroll. Nothing connects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="container">
+            <span class="section-eyebrow">How it works</span>
+            <h2 class="section-title">From chaos to clarity in 3 steps</h2>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="step-num">1</div>
+                    <h3>We talk</h3>
+                    <p>30-minute call. You tell me what's broken, what's slow, what's eating your team's time.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">2</div>
+                    <h3>I scope it</h3>
+                    <p>I'll tell you exactly what I'd build, how long it takes, and what it costs. No surprises.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">3</div>
+                    <h3>You get a system</h3>
+                    <p>Not a proposal. Not a roadmap. A working system your team can use immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Build -->
+    <section class="build-section">
+        <div class="container">
+            <span class="section-eyebrow">What I build</span>
+            <h2 class="section-title">Systems that actually run</h2>
+            <div class="build-grid">
+                <div class="build-item">
+                    <div class="build-icon">📦</div>
+                    <div>
+                        <h4>Fulfillment Systems</h4>
+                        <p>Pick lists, warehouse routing, shipping label automation—end to end.</p>
+                    </div>
+                </div>
+                <div class="build-item">
+                    <div class="build-icon">👥</div>
+                    <div>
+                        <h4>Team Dashboards</h4>
+                        <p>Employee management, scheduling, performance tracking, payroll.</p>
+                    </div>
+                </div>
+                <div class="build-item">
+                    <div class="build-icon">🔗</div>
+                    <div>
+                        <h4>Platform Integrations</h4>
+                        <p>Connect Shopify, Whatnot, StockX, Fishbowl—whatever you're using.</p>
+                    </div>
+                </div>
+                <div class="build-item">
+                    <div class="build-icon">📈</div>
+                    <div>
+                        <h4>Admin & P&L Tools</h4>
+                        <p>Real-time dashboards showing the numbers that actually matter.</p>
+                    </div>
+                </div>
+                <div class="build-item">
+                    <div class="build-icon">💰</div>
+                    <div>
+                        <h4>Commission Engines</h4>
+                        <p>Automated calculations based on benchmarks, tiers, whatever logic you need.</p>
+                    </div>
+                </div>
+                <div class="build-item">
+                    <div class="build-icon">🗄️</div>
+                    <div>
+                        <h4>Data Infrastructure</h4>
+                        <p>SQL databases, reporting pipelines, analytics that unlock what your data can tell you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results-section">
+        <div class="container">
+            <span class="section-eyebrow">Real results</span>
+            <h2 class="section-title">What happens when it works</h2>
+            <div class="result-card">
+                <p class="result-quote">
+                    "Took a live commerce operation from spreadsheet chaos to processing 500+ orders daily through automated systems. Commission calculations that took 4 hours now take 10 minutes. Fulfillment errors dropped to nearly zero."
+                </p>
+                <div class="result-meta">
+                    <div class="result-avatar">📦</div>
+                    <div class="result-info">
+                        <div class="name">Live Commerce Operation</div>
+                        <div class="title">$1M+/month in sales across Whatnot & Shopify</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <span class="section-eyebrow">FAQ</span>
+            <h2 class="section-title">Questions before you book</h2>
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <div class="faq-q">How long does a typical project take?</div>
+                    <p class="faq-a">Most projects take 1-4 weeks depending on complexity. Simple automations can be done in days. Larger systems with multiple integrations take longer. I'll give you an exact timeline on our call.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What does it cost?</div>
+                    <p class="faq-a">It depends on the scope. I price by project, not by hour, so you know exactly what you're paying before we start. Most projects range from $2-15k. We'll talk budget on the call.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Do I need to be technical?</div>
+                    <p class="faq-a">No. If you can explain the problem, I can build the solution. I'll handle all the technical work and make sure your team can actually use what I build.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What platforms do you work with?</div>
+                    <p class="faq-a">Shopify, Whatnot, StockX, Fishbowl, Google Sheets, most e-commerce and inventory platforms. If it has an API or data export, I can probably work with it.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What if I just need something small?</div>
+                    <p class="faq-a">Small is fine. Sometimes a single automation or integration solves 80% of the problem. Let's talk about what would actually move the needle for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="book">
+        <div class="container">
+            <h2>Let's see if I can help.</h2>
+            <p>30-minute call. Tell me what's broken. I'll tell you if I can fix it and what it would take.</p>
+            <a href="#" class="hero-cta">
+                Book a Free Call
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 ZTL Solutions · Portland, OR</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
