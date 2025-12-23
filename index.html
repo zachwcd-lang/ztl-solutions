@@ -358,6 +358,35 @@
             color: #555;
         }
 
+        .built-list {
+            margin: 24px 0;
+        }
+
+        .built-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .built-item:last-child {
+            border-bottom: none;
+        }
+
+        .built-item strong {
+            color: #10b981;
+        }
+
+        .chatgpt-aside {
+            margin-top: 24px;
+            padding: 16px;
+            background: #fafafa;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
         /* FAQ */
         .faq-section {
             padding: 80px 0;
@@ -462,20 +491,19 @@
     <nav>
         <div class="container">
             <div class="logo">ZTL<span>.</span></div>
-            <a href="#book" class="nav-cta">Book a Call</a>
+            <a href="#book" class="nav-cta">Let's Talk</a>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-eyebrow">🏆 "Scaled chaos into systems" — ChatGPT 2025 Award</div>
-            <h1>Your data is collecting dust.<br>Let's put it to work.</h1>
+            <h1>I'm an ops guy who learned to build.<br>Now I build for ops teams.</h1>
             <p>
-                I build the internal tools, automations, and dashboards that e-commerce teams need to scale—without hiring a dev team or waiting 6 months.
+                I run operations for a live commerce company doing $1M+/month. I built all our internal systems myself—fulfillment, dashboards, integrations, the works. If it's manual and predictable, it can be automated. I can do the same for you.
             </p>
             <a href="#book" class="hero-cta">
-                Book a Free Call
+                Tell Me What's Broken
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -508,7 +536,7 @@
     <section class="pain-section">
         <div class="container">
             <span class="section-eyebrow">Sound familiar?</span>
-            <h2 class="section-title">These problems shouldn't still exist.</h2>
+            <h2 class="section-title">You're doing too much by hand.</h2>
             <div class="pain-grid">
                 <div class="pain-card">
                     <div class="pain-icon">📊</div>
@@ -532,8 +560,8 @@
     <!-- How It Works -->
     <section class="how-section">
         <div class="container">
-            <span class="section-eyebrow">How it works</span>
-            <h2 class="section-title">From chaos to clarity in 3 steps</h2>
+            <span class="section-eyebrow">The process</span>
+            <h2 class="section-title">Here's how this goes</h2>
             <div class="how-grid">
                 <div class="how-step">
                     <div class="step-num">1</div>
@@ -606,22 +634,25 @@
         </div>
     </section>
 
-    <!-- Results -->
+    <!-- What I've Built -->
     <section class="results-section">
         <div class="container">
-            <span class="section-eyebrow">Real results</span>
-            <h2 class="section-title">What happens when it works</h2>
+            <span class="section-eyebrow">What I've built</span>
+            <h2 class="section-title">This is my day job.</h2>
             <div class="result-card">
-                <p class="result-quote">
-                    "Took a live commerce operation from spreadsheet chaos to processing 500+ orders daily through automated systems. Commission calculations that took 4 hours now take 10 minutes. Fulfillment errors dropped to nearly zero."
+                <p class="result-quote" style="font-style: normal;">
+                    I run operations for a live streaming e-commerce company. Everything below? I built it myself, and it runs in production every day.
                 </p>
-                <div class="result-meta">
-                    <div class="result-avatar">📦</div>
-                    <div class="result-info">
-                        <div class="name">Live Commerce Operation</div>
-                        <div class="title">$1M+/month in sales across Whatnot & Shopify</div>
-                    </div>
+                <div class="built-list">
+                    <div class="built-item"><strong>$1.1M+/month</strong> in sales flowing through my systems (Whatnot + Shopify)</div>
+                    <div class="built-item"><strong>500+ orders/day</strong> processed through fulfillment tools I built from scratch</div>
+                    <div class="built-item"><strong>Commission engine</strong> that replaced 4 hours of manual calculation with a 10-minute report</div>
+                    <div class="built-item"><strong>Platform integrations</strong> across Whatnot, Shopify, StockX, Fishbowl, and more</div>
+                    <div class="built-item"><strong>Employee dashboards</strong> for scheduling, performance tracking, and payroll</div>
                 </div>
+                <p class="chatgpt-aside">
+                    ChatGPT gave me a 2025 award: "Most Likely to Turn a Warehouse into a Startup Lab." I thought that was funny.
+                </p>
             </div>
         </div>
     </section>
@@ -630,7 +661,7 @@
     <section class="faq-section">
         <div class="container">
             <span class="section-eyebrow">FAQ</span>
-            <h2 class="section-title">Questions before you book</h2>
+            <h2 class="section-title">The usual questions</h2>
             <div class="faq-list">
                 <div class="faq-item open">
                     <div class="faq-q">How long does a typical project take?</div>
@@ -659,10 +690,10 @@
     <!-- Final CTA -->
     <section class="final-cta" id="book">
         <div class="container">
-            <h2>Let's see if I can help.</h2>
-            <p>30-minute call. Tell me what's broken. I'll tell you if I can fix it and what it would take.</p>
+            <h2>Got a mess? Let's look at it.</h2>
+            <p>30 minutes. You tell me what's broken, I'll tell you if I can fix it. No pitch.</p>
             <a href="#" class="hero-cta">
-                Book a Free Call
+                Let's Talk
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
