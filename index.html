@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZTL Solutions | E-Commerce Operations That Scale</title>
+    <title>ZTL Solutions | Ecommerce Operations That Scale</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,11 +31,11 @@
 
         /* Nav */
         nav {
-            padding: 20px 0;
-            background: rgba(255, 255, 255, 0.8);
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -47,13 +47,38 @@
             align-items: center;
         }
 
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
         .logo {
             font-size: 1.15rem;
             font-weight: 700;
             color: #111;
+            text-decoration: none;
         }
 
         .logo span { color: #3b82f6; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #3b82f6;
+        }
 
         .nav-cta {
             padding: 10px 20px;
@@ -70,17 +95,16 @@
         .nav-cta:hover {
             background: #2563eb;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+            transform: translateY(-1px);
         }
 
         /* Hero */
         .hero {
-            padding: 100px 0 80px;
+            padding: 120px 0 100px;
             text-align: center;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-                linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
             position: relative;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -90,10 +114,52 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px);
-            background-size: 32px 32px;
-            opacity: 0.4;
+            background-image: radial-gradient(rgba(59, 130, 246, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.5;
             pointer-events: none;
+        }
+
+        /* Floating shapes */
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero-shape-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            top: -100px;
+            left: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-shape-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            top: 50%;
+            right: -50px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        .hero-shape-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+            bottom: -50px;
+            left: 30%;
+            animation: float 18s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(10px, -15px); }
+            50% { transform: translate(-5px, 10px); }
+            75% { transform: translate(15px, 5px); }
         }
 
         .hero .container {
@@ -102,11 +168,11 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
-            line-height: 1.15;
+            line-height: 1.1;
             color: #111;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             letter-spacing: -0.03em;
         }
 
@@ -114,7 +180,7 @@
             font-size: 1.25rem;
             color: #333;
             max-width: 620px;
-            margin: 0 auto 16px;
+            margin: 0 auto 20px;
             line-height: 1.6;
             font-weight: 500;
         }
@@ -123,40 +189,64 @@
             font-size: 1.05rem;
             color: #666;
             max-width: 560px;
-            margin: 0 auto 36px;
+            margin: 0 auto 40px;
             line-height: 1.7;
         }
 
         .hero-cta {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 16px 32px;
+            gap: 10px;
+            padding: 18px 36px;
             background: #3b82f6;
             color: #fff;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
             font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+            transition: all 0.25s;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
         }
 
         .hero-cta:hover {
             background: #2563eb;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.45);
+        }
+
+        .hero-cta svg {
+            transition: transform 0.2s;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(3px);
         }
 
         .hero-note {
-            margin-top: 16px;
+            margin-top: 20px;
             font-size: 0.9rem;
             color: #888;
         }
 
+        /* Icon styling */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .icon-lg {
+            width: 28px;
+            height: 28px;
+        }
+
         /* Proof Bar */
         .proof-bar {
-            padding: 56px 0;
+            padding: 64px 0;
             background: #ffffff;
             border-top: 1px solid #e5e7eb;
             border-bottom: 1px solid #e5e7eb;
@@ -165,21 +255,22 @@
         .proof-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 48px;
             text-align: center;
         }
 
         .proof-item .number {
-            font-size: 2.75rem;
+            font-size: 3rem;
             font-weight: 800;
             color: #3b82f6;
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .proof-item .label {
             font-size: 0.95rem;
             color: #555;
+            line-height: 1.5;
         }
 
         /* Section styling */
@@ -189,20 +280,20 @@
             font-weight: 600;
             color: #3b82f6;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 12px;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
         }
 
         .section-title {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-size: clamp(1.85rem, 3vw, 2.35rem);
             font-weight: 700;
             color: #111;
-            margin-bottom: 56px;
+            margin-bottom: 60px;
         }
 
         /* Pain Section */
         .pain-section {
-            padding: 110px 0;
+            padding: 120px 0;
             background: #f8fafc;
         }
 
@@ -213,43 +304,50 @@
         }
 
         .pain-card {
-            padding: 32px;
-            background: rgba(255, 255, 255, 0.7);
+            padding: 36px;
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            border-radius: 16px;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
         }
 
         .pain-card:hover {
-            border-color: rgba(59, 130, 246, 0.25);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.08);
-            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.2);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.1);
+            transform: translateY(-4px);
         }
 
         .pain-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            width: 56px;
+            height: 56px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: #3b82f6;
         }
 
         .pain-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #111;
         }
 
         .pain-card p {
             font-size: 0.95rem;
             color: #555;
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         /* How It Works */
         .how-section {
-            padding: 110px 0;
+            padding: 120px 0;
             background: #ffffff;
         }
 
@@ -265,51 +363,50 @@
 
         .how-step {
             text-align: center;
-            padding: 40px 28px;
-            background: rgba(248, 250, 252, 0.8);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            padding: 44px 32px;
+            background: #f8fafc;
             border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            transition: all 0.25s ease;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
 
         .how-step:hover {
             border-color: rgba(59, 130, 246, 0.2);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.06);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.08);
+            transform: translateY(-4px);
         }
 
         .step-num {
-            width: 52px;
-            height: 52px;
+            width: 56px;
+            height: 56px;
             background: #3b82f6;
             color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            margin: 0 auto 24px;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            margin: 0 auto 28px;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
         }
 
         .how-step h3 {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #111;
         }
 
         .how-step p {
             font-size: 0.95rem;
             color: #555;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         /* What I Build */
         .build-section {
-            padding: 110px 0;
+            padding: 120px 0;
             background: #f8fafc;
         }
 
@@ -321,51 +418,51 @@
 
         .build-item {
             display: flex;
-            gap: 18px;
-            padding: 28px;
-            background: rgba(255, 255, 255, 0.7);
+            gap: 20px;
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            border-radius: 14px;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            border-radius: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
         }
 
         .build-item:hover {
-            border-color: rgba(59, 130, 246, 0.3);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.1);
-            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.25);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.12);
+            transform: translateY(-4px);
         }
 
         .build-icon {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             background: rgba(59, 130, 246, 0.1);
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.35rem;
             flex-shrink: 0;
+            color: #3b82f6;
         }
 
         .build-item h4 {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #111;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .build-item p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #555;
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
         /* What I've Built */
         .results-section {
-            padding: 110px 0;
+            padding: 120px 0;
             background: #ffffff;
         }
 
@@ -374,38 +471,45 @@
         }
 
         .result-card {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
-            padding: 48px;
-            background: rgba(248, 250, 252, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.12);
-            border-radius: 20px;
+            padding: 52px;
+            background: #f8fafc;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 24px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
         }
 
         .result-intro {
             font-size: 1.15rem;
             color: #333;
-            line-height: 1.6;
-            margin-bottom: 32px;
+            line-height: 1.65;
+            margin-bottom: 36px;
         }
 
         .built-list {
-            margin: 0 0 32px;
+            margin: 0 0 36px;
         }
 
         .built-item {
-            padding: 16px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 18px 0;
             border-bottom: 1px solid #e5e7eb;
             font-size: 1rem;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         .built-item:last-child {
             border-bottom: none;
+        }
+
+        .built-item svg {
+            flex-shrink: 0;
+            color: #3b82f6;
+            margin-top: 2px;
         }
 
         .built-item strong {
@@ -414,10 +518,10 @@
         }
 
         .chatgpt-aside {
-            padding: 20px;
+            padding: 24px;
             background: rgba(59, 130, 246, 0.04);
             border: 1px solid rgba(59, 130, 246, 0.1);
-            border-radius: 12px;
+            border-radius: 14px;
             font-size: 0.95rem;
             color: #555;
             font-style: italic;
@@ -425,7 +529,7 @@
 
         /* FAQ */
         .faq-section {
-            padding: 110px 0;
+            padding: 120px 0;
             background: #f8fafc;
         }
 
@@ -434,15 +538,15 @@
         }
 
         .faq-list {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            border-radius: 16px;
-            padding: 8px 32px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            border-radius: 20px;
+            padding: 12px 36px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
         }
 
         .faq-item {
@@ -454,7 +558,7 @@
         }
 
         .faq-q {
-            padding: 24px 0;
+            padding: 26px 0;
             font-size: 1.05rem;
             font-weight: 600;
             color: #111;
@@ -482,10 +586,10 @@
         }
 
         .faq-a {
-            padding: 0 0 24px;
+            padding: 0 0 26px;
             font-size: 0.95rem;
             color: #555;
-            line-height: 1.7;
+            line-height: 1.75;
             display: none;
         }
 
@@ -495,35 +599,80 @@
 
         /* Final CTA */
         .final-cta {
-            padding: 120px 0;
+            padding: 140px 0;
             text-align: center;
             background:
                 radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
                 radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
                 linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .final-cta .container {
+            position: relative;
+            z-index: 1;
         }
 
         .final-cta h2 {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-size: clamp(1.85rem, 3vw, 2.35rem);
             font-weight: 700;
             color: #111;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .final-cta p {
             font-size: 1.1rem;
             color: #555;
             max-width: 480px;
-            margin: 0 auto 36px;
-            line-height: 1.65;
+            margin: 0 auto 40px;
+            line-height: 1.7;
         }
 
         /* Footer */
         footer {
-            padding: 48px 0;
+            padding: 56px 0;
             text-align: center;
             background: #ffffff;
             border-top: 1px solid #e5e7eb;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            color: #64748b;
+            transition: all 0.2s;
+        }
+
+        .footer-social a:hover {
+            background: #3b82f6;
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         footer p {
@@ -533,18 +682,21 @@
 
         /* Mobile */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
             .proof-grid, .pain-grid, .how-grid {
                 grid-template-columns: 1fr;
             }
             .build-grid {
                 grid-template-columns: 1fr;
             }
-            .hero { padding: 70px 0 50px; }
+            .hero { padding: 80px 0 60px; }
             .pain-section, .how-section, .build-section, .results-section, .faq-section {
                 padding: 80px 0;
             }
             .final-cta {
-                padding: 80px 0;
+                padding: 100px 0;
             }
             .result-card {
                 padding: 32px 24px;
@@ -553,7 +705,10 @@
                 padding: 8px 20px;
             }
             .section-title {
-                margin-bottom: 40px;
+                margin-bottom: 44px;
+            }
+            .proof-grid {
+                gap: 32px;
             }
         }
     </style>
@@ -561,13 +716,23 @@
 <body>
     <nav>
         <div class="container">
-            <div class="logo">ZTL<span>.</span></div>
+            <div class="nav-left">
+                <a href="index.html" class="logo">ZTL<span>.</span></a>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="#book">Contact</a>
+                </div>
+            </div>
             <a href="#book" class="nav-cta">Let's Talk</a>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
         <div class="container">
             <h1>Stop duct-taping your operations.<br>Get systems that actually work.</h1>
             <p class="hero-lead">
@@ -578,8 +743,8 @@
             </p>
             <a href="#book" class="hero-cta">
                 Tell Me What's Broken
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
             <p class="hero-note">30 min. No pitch. Just see if I can help.</p>
@@ -613,19 +778,36 @@
             <h2 class="section-title">You're doing too much by hand.</h2>
             <div class="pain-grid">
                 <div class="pain-card">
-                    <div class="pain-icon">📊</div>
+                    <div class="pain-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                    </div>
                     <h3>Living in spreadsheets</h3>
                     <p>You're copying and pasting between 5 tabs, 3 platforms, and a prayer. One wrong VLOOKUP and everything breaks.</p>
                 </div>
                 <div class="pain-card">
-                    <div class="pain-icon">⏰</div>
+                    <div class="pain-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
                     <h3>Drowning in manual work</h3>
                     <p>Your team spends hours on tasks that should take minutes. Fulfillment, commissions, reporting—all done by hand.</p>
                 </div>
                 <div class="pain-card">
-                    <div class="pain-icon">🔌</div>
+                    <div class="pain-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </div>
                     <h3>Systems that don't talk</h3>
-                    <p>Shopify doesn't talk to your inventory. Your streams don't talk to your payroll. Nothing connects.</p>
+                    <p>Shopify doesn't talk to your inventory. Your sales channels don't talk to your payroll. Nothing connects.</p>
                 </div>
             </div>
         </div>
@@ -663,42 +845,77 @@
             <h2 class="section-title">Systems that actually run</h2>
             <div class="build-grid">
                 <div class="build-item">
-                    <div class="build-icon">📦</div>
+                    <div class="build-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
                     <div>
                         <h4>Fulfillment Systems</h4>
                         <p>Pick lists, warehouse routing, shipping label automation—end to end.</p>
                     </div>
                 </div>
                 <div class="build-item">
-                    <div class="build-icon">👥</div>
+                    <div class="build-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
                     <div>
                         <h4>Team Dashboards</h4>
                         <p>Employee management, scheduling, performance tracking, payroll.</p>
                     </div>
                 </div>
                 <div class="build-item">
-                    <div class="build-icon">🔗</div>
+                    <div class="build-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                    </div>
                     <div>
                         <h4>Platform Integrations</h4>
                         <p>Shopify, Amazon FBA, TikTok Shop, StockX—if it has an API, I can connect it.</p>
                     </div>
                 </div>
                 <div class="build-item">
-                    <div class="build-icon">📈</div>
+                    <div class="build-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"/>
+                            <line x1="12" y1="20" x2="12" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="14"/>
+                        </svg>
+                    </div>
                     <div>
                         <h4>Admin & P&L Tools</h4>
                         <p>Real-time dashboards showing the numbers that actually matter.</p>
                     </div>
                 </div>
                 <div class="build-item">
-                    <div class="build-icon">💰</div>
+                    <div class="build-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
                     <div>
                         <h4>Commission Engines</h4>
                         <p>Automated calculations based on benchmarks, tiers, whatever logic you need.</p>
                     </div>
                 </div>
                 <div class="build-item">
-                    <div class="build-icon">🗄️</div>
+                    <div class="build-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                        </svg>
+                    </div>
                     <div>
                         <h4>Data Infrastructure</h4>
                         <p>SQL databases, reporting pipelines, analytics that unlock what your data can tell you.</p>
@@ -718,11 +935,36 @@
                     I run operations for an ecommerce company selling across multiple channels. Everything below? I built it myself, and it runs in production every day.
                 </p>
                 <div class="built-list">
-                    <div class="built-item"><strong>$1.1M+/month</strong> in sales flowing through my systems across multiple sales channels</div>
-                    <div class="built-item"><strong>500+ orders/day</strong> processed through fulfillment tools I built from scratch</div>
-                    <div class="built-item"><strong>Commission engine</strong> that replaced 4 hours of manual calculation with a 10-minute report</div>
-                    <div class="built-item"><strong>Platform integrations</strong> connecting Shopify, inventory systems, 3rd party marketplaces, and more</div>
-                    <div class="built-item"><strong>Employee dashboards</strong> for scheduling, performance tracking, and payroll</div>
+                    <div class="built-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span><strong>$1.1M+/month</strong> in sales flowing through my systems across multiple sales channels</span>
+                    </div>
+                    <div class="built-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span><strong>500+ orders/day</strong> processed through fulfillment tools I built from scratch</span>
+                    </div>
+                    <div class="built-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span><strong>Commission engine</strong> that replaced 4 hours of manual calculation with a 10-minute report</span>
+                    </div>
+                    <div class="built-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span><strong>Platform integrations</strong> connecting Shopify, inventory systems, 3rd party marketplaces, and more</span>
+                    </div>
+                    <div class="built-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span><strong>Employee dashboards</strong> for scheduling, performance tracking, and payroll</span>
+                    </div>
                 </div>
                 <p class="chatgpt-aside">
                     ChatGPT gave me a 2025 award: "Most Likely to Turn a Warehouse into a Startup Lab." I thought that was funny.
@@ -768,8 +1010,8 @@
             <p>30 minutes. You tell me what's broken, I'll tell you if I can fix it. No pitch.</p>
             <a href="#" class="hero-cta">
                 Let's Talk
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
         </div>
@@ -778,7 +1020,16 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 ZTL Solutions · Portland, OR</p>
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/zacharyliem/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p>© 2025 ZTL Solutions · Portland, OR</p>
+            </div>
         </div>
     </footer>
 
