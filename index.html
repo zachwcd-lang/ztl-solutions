@@ -88,7 +88,25 @@
             font-weight: 500;
             color: #64748b;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .nav-links a:hover,
@@ -152,35 +170,63 @@
         .tool-screenshot {
             width: 100%;
             max-width: 800px;
-            border-radius: 16px;
+            border-radius: 12px;
             box-shadow:
-                0 25px 50px -12px rgba(0, 0, 0, 0.15),
-                0 0 80px rgba(59, 130, 246, 0.12);
+                0 0 0 1px rgba(59, 130, 246, 0.1),
+                0 0 20px rgba(59, 130, 246, 0.15),
+                0 0 40px rgba(59, 130, 246, 0.1),
+                0 25px 50px -12px rgba(0, 0, 0, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: screenshotFloat 6s ease-in-out infinite;
+            animation: screenshotFloat 6s ease-in-out infinite, screenshotGlow 3s ease-in-out infinite alternate;
         }
 
         .tool-screenshot:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px) scale(1.01);
             box-shadow:
-                0 35px 60px -15px rgba(0, 0, 0, 0.2),
-                0 0 100px rgba(59, 130, 246, 0.18);
+                0 0 0 1px rgba(59, 130, 246, 0.3),
+                0 0 40px rgba(59, 130, 246, 0.25),
+                0 0 80px rgba(59, 130, 246, 0.15),
+                0 35px 60px -15px rgba(0, 0, 0, 0.15);
+            animation: none;
         }
 
         @keyframes screenshotFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes screenshotGlow {
+            from {
+                box-shadow:
+                    0 0 0 1px rgba(59, 130, 246, 0.1),
+                    0 0 20px rgba(59, 130, 246, 0.1),
+                    0 0 40px rgba(59, 130, 246, 0.05),
+                    0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            }
+            to {
+                box-shadow:
+                    0 0 0 1px rgba(59, 130, 246, 0.2),
+                    0 0 30px rgba(59, 130, 246, 0.2),
+                    0 0 60px rgba(59, 130, 246, 0.12),
+                    0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            }
         }
 
         /* Glow effect behind screenshot */
         .hero-visual::before {
             content: '';
             position: absolute;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
-            filter: blur(40px);
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            filter: blur(50px);
             z-index: -1;
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
 
         /* Floating blobs */
@@ -310,6 +356,16 @@
             box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
             position: relative;
             overflow: hidden;
+            animation: ctaPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.2);
+            }
         }
 
         .hero-cta::before {
@@ -319,7 +375,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: left 0.6s;
         }
 
@@ -328,8 +384,9 @@
         }
 
         .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(59, 130, 246, 0.3);
+            animation: none;
         }
 
         .hero-cta svg {
@@ -394,6 +451,18 @@
             text-align: center;
         }
 
+        /* Scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .proof-item {
             padding: 40px 32px;
             background: rgba(255, 255, 255, 0.7);
@@ -404,15 +473,16 @@
             box-shadow:
                 0 4px 24px rgba(59, 130, 246, 0.08),
                 0 1px 2px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .proof-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px) scale(1.02);
             box-shadow:
-                0 12px 40px rgba(59, 130, 246, 0.15),
-                0 4px 12px rgba(59, 130, 246, 0.1);
-            border-color: rgba(59, 130, 246, 0.3);
+                0 20px 50px rgba(59, 130, 246, 0.2),
+                0 8px 20px rgba(59, 130, 246, 0.15),
+                0 0 0 1px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
         }
 
         .proof-item .number {
@@ -424,7 +494,12 @@
             background-clip: text;
             line-height: 1;
             margin-bottom: 12px;
-            filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
+            filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));
+            transition: filter 0.3s ease;
+        }
+
+        .proof-item:hover .number {
+            filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4));
         }
 
         .proof-item .label {
@@ -487,7 +562,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 24px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow:
                 0 4px 24px rgba(59, 130, 246, 0.08),
                 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -512,11 +587,12 @@
         }
 
         .pain-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-10px) scale(1.02);
             box-shadow:
-                0 12px 40px rgba(59, 130, 246, 0.15),
-                0 4px 12px rgba(59, 130, 246, 0.1);
-            border-color: rgba(59, 130, 246, 0.3);
+                0 25px 50px rgba(59, 130, 246, 0.2),
+                0 10px 25px rgba(59, 130, 246, 0.15),
+                0 0 0 1px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
         }
 
         .pain-icon {
@@ -598,7 +674,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 24px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow:
                 0 4px 24px rgba(59, 130, 246, 0.08),
                 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -606,11 +682,12 @@
         }
 
         .how-step:hover {
-            transform: translateY(-4px);
+            transform: translateY(-10px) scale(1.02);
             box-shadow:
-                0 12px 40px rgba(59, 130, 246, 0.15),
-                0 4px 12px rgba(59, 130, 246, 0.1);
-            border-color: rgba(59, 130, 246, 0.3);
+                0 25px 50px rgba(59, 130, 246, 0.2),
+                0 10px 25px rgba(59, 130, 246, 0.15),
+                0 0 0 1px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
         }
 
         .step-num {
@@ -695,18 +772,19 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 20px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow:
                 0 4px 24px rgba(59, 130, 246, 0.08),
                 0 1px 2px rgba(0, 0, 0, 0.04);
         }
 
         .build-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px) scale(1.02);
             box-shadow:
-                0 12px 40px rgba(59, 130, 246, 0.15),
-                0 4px 12px rgba(59, 130, 246, 0.1);
-            border-color: rgba(59, 130, 246, 0.3);
+                0 20px 45px rgba(59, 130, 246, 0.18),
+                0 8px 20px rgba(59, 130, 246, 0.12),
+                0 0 0 1px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
         }
 
         .build-icon {
@@ -1433,7 +1511,61 @@
                 q.parentElement.classList.toggle('open');
             });
         });
+
+        // Scroll animations - fade in elements as they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay for grid items
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.proof-item, .pain-card, .how-step, .build-item').forEach((el, index) => {
+            el.classList.add('fade-in-up');
+            el.dataset.delay = index % 3; // Stagger in groups of 3
+            observer.observe(el);
+        });
+
+        // Add floating particles to hero
+        const hero = document.querySelector('.hero');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 4 + 2}px;
+                height: ${Math.random() * 4 + 2}px;
+                background: rgba(59, 130, 246, ${Math.random() * 0.3 + 0.1});
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: particleFloat ${Math.random() * 10 + 15}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 5}s;
+                pointer-events: none;
+            `;
+            hero.appendChild(particle);
+        }
     </script>
+
+    <style>
+        @keyframes particleFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            25% { transform: translate(20px, -30px) scale(1.2); opacity: 0.8; }
+            50% { transform: translate(-10px, -60px) scale(0.8); opacity: 0.6; }
+            75% { transform: translate(30px, -30px) scale(1.1); opacity: 0.7; }
+        }
+    </style>
     <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
