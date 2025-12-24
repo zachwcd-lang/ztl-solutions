@@ -132,20 +132,37 @@
             align-items: start;
         }
 
-        .photo-placeholder {
+        .about-photo {
             width: 280px;
             height: 340px;
-            background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3b82f6;
-            border: 2px dashed rgba(59, 130, 246, 0.3);
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(59, 130, 246, 0.1),
+                0 20px 50px -10px rgba(0, 0, 0, 0.15),
+                0 0 40px rgba(59, 130, 246, 0.1);
+            position: relative;
         }
 
-        .photo-placeholder svg {
-            opacity: 0.5;
+        .about-photo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(124, 58, 237, 0.2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
         }
 
         .about-intro h1 {
@@ -417,7 +434,7 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            .photo-placeholder {
+            .about-photo {
                 width: 200px;
                 height: 240px;
                 margin: 0 auto;
@@ -446,7 +463,7 @@
                     <a href="index.html">Home</a>
                     <a href="stories.html">Stories</a>
                     <a href="about.html" class="active">About</a>
-                    <a href="index.html#book">Contact</a>
+                    <a href="index.html#contact">Contact</a>
                 </div>
             </div>
             <a href="https://calendly.com/zacharyliem/30min" class="nav-cta">Let's Talk</a>
@@ -457,11 +474,8 @@
     <section class="about-hero">
         <div class="container">
             <div class="about-hero-content">
-                <div class="photo-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
+                <div class="about-photo">
+                    <img src="assets/ZachPhoto.jpeg" alt="Zach Liem - Founder of ZTL Solutions">
                 </div>
                 <div class="about-intro">
                     <h1>I'm Zach. Entrepreneur, operator, builder.</h1>
