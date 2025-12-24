@@ -804,8 +804,8 @@
         /* Flanking decorative images */
         .build-flank {
             position: absolute;
-            width: 400px;
-            opacity: 0.6;
+            width: 440px;
+            opacity: 0.85;
             pointer-events: none;
             z-index: 0;
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
@@ -818,9 +818,9 @@
         }
 
         .build-flank-left {
-            left: -180px;
+            left: -100px;
             top: 50%;
-            transform: translateY(-50%) rotate(7deg);
+            transform: translateY(-50%) rotate(7deg) scale(1.1);
         }
 
         .build-flank-left::after {
@@ -828,16 +828,16 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 60%;
+            width: 50%;
             height: 100%;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0.95), transparent);
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
             pointer-events: none;
         }
 
         .build-flank-right {
-            right: -180px;
+            right: -100px;
             top: 50%;
-            transform: translateY(-50%) rotate(-7deg);
+            transform: translateY(-50%) rotate(-7deg) scale(1.1);
         }
 
         .build-flank-right::after {
@@ -845,9 +845,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 60%;
+            width: 50%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), transparent);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent);
             pointer-events: none;
         }
 
