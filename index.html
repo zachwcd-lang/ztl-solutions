@@ -788,6 +788,7 @@
             padding: 130px 0;
             background: #ffffff;
             position: relative;
+            overflow: hidden;
         }
 
         .build-section::before {
@@ -798,6 +799,61 @@
             right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+        }
+
+        /* Flanking decorative images */
+        .build-flank {
+            position: absolute;
+            width: 400px;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+        }
+
+        .build-flank img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .build-flank-left {
+            left: -180px;
+            top: 50%;
+            transform: translateY(-50%) rotate(7deg);
+        }
+
+        .build-flank-left::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.95), transparent);
+            pointer-events: none;
+        }
+
+        .build-flank-right {
+            right: -180px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-7deg);
+        }
+
+        .build-flank-right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), transparent);
+            pointer-events: none;
+        }
+
+        .build-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .build-grid {
@@ -1393,6 +1449,9 @@
                 font-size: 0.65rem;
                 padding: 4px 8px;
             }
+            .build-flank {
+                display: none;
+            }
         }
 
         @media (max-width: 600px) {
@@ -1605,6 +1664,12 @@
 
     <!-- What I Build -->
     <section class="build-section">
+        <div class="build-flank build-flank-left">
+            <img src="assets/new-label-grabber.png" alt="">
+        </div>
+        <div class="build-flank build-flank-right">
+            <img src="assets/admindashclean.png" alt="">
+        </div>
         <div class="container">
             <span class="section-eyebrow">What I build</span>
             <h2 class="section-title">Systems that actually run</h2>
