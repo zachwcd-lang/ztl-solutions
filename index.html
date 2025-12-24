@@ -1556,40 +1556,51 @@
                 font-size: 0.65rem;
                 padding: 4px 8px;
             }
-            .build-flank {
-                display: none;
-            }
-            /* Mobile hero flanking images - subtle background texture */
-            .hero {
+            /* Mobile flanking images - subtle background proof */
+            .hero, .build-section {
                 overflow: visible;
             }
-            .hero-flank {
+            .hero-flank, .build-flank {
                 position: absolute;
-                width: 180px;
-                opacity: 0.3 !important;
+                width: 200px;
+                opacity: 0.5 !important;
                 pointer-events: none;
+                z-index: 0 !important;
             }
-            .hero-flank img {
-                max-height: 240px;
+            .hero .container, .build-section .container {
+                position: relative;
+                z-index: 2;
             }
-            .hero-flank-left {
-                left: -40px;
-                top: 80px;
-                transform: rotate(10deg);
+            .hero-flank img, .build-flank img {
+                max-height: 280px;
             }
-            .hero-flank-left::after {
-                width: 70%;
-                background: linear-gradient(to left, rgba(244, 248, 244, 0.95), transparent);
+            .hero-flank-left, .build-flank-left {
+                left: -60px;
+                top: 60px;
+                transform: rotate(8deg);
             }
-            .hero-flank-right {
-                right: -40px;
-                bottom: 120px;
+            .hero-flank-left::after, .build-flank-left::after {
+                width: 50%;
+                background: linear-gradient(to left, rgba(244, 248, 244, 0.85), transparent);
+            }
+            .hero-flank-right, .build-flank-right {
+                right: -60px;
+                bottom: 100px;
                 top: auto;
-                transform: rotate(-10deg);
+                transform: rotate(-8deg);
             }
-            .hero-flank-right::after {
-                width: 70%;
-                background: linear-gradient(to right, rgba(244, 248, 244, 0.95), transparent);
+            .hero-flank-right::after, .build-flank-right::after {
+                width: 50%;
+                background: linear-gradient(to right, rgba(244, 248, 244, 0.85), transparent);
+            }
+            .build-flank {
+                display: block;
+            }
+            .build-flank-left::after, .build-flank-right::after {
+                background: linear-gradient(to right, rgba(255, 255, 255, 0.85), transparent);
+            }
+            .build-flank-left::after {
+                background: linear-gradient(to left, rgba(255, 255, 255, 0.85), transparent);
             }
         }
 
