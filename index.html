@@ -1560,33 +1560,36 @@
                 display: none;
             }
             /* Mobile hero flanking images - subtle background texture */
+            .hero {
+                overflow: visible;
+            }
             .hero-flank {
                 position: absolute;
-                width: 200px;
-                z-index: -1;
-            }
-            .hero-flank.visible {
-                opacity: 0.35;
+                width: 180px;
+                opacity: 0.3 !important;
+                pointer-events: none;
             }
             .hero-flank img {
-                max-height: 280px;
+                max-height: 240px;
             }
             .hero-flank-left {
-                left: -60px;
-                top: 20px;
-                transform: rotate(8deg);
+                left: -40px;
+                top: 80px;
+                transform: rotate(10deg);
             }
             .hero-flank-left::after {
-                width: 60%;
+                width: 70%;
+                background: linear-gradient(to left, rgba(244, 248, 244, 0.95), transparent);
             }
             .hero-flank-right {
-                right: -60px;
-                bottom: 60px;
+                right: -40px;
+                bottom: 120px;
                 top: auto;
-                transform: rotate(-8deg);
+                transform: rotate(-10deg);
             }
             .hero-flank-right::after {
-                width: 60%;
+                width: 70%;
+                background: linear-gradient(to right, rgba(244, 248, 244, 0.95), transparent);
             }
         }
 
