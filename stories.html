@@ -676,6 +676,116 @@
             color: #94a3b8;
         }
 
+        /* Browser mockup frame */
+        .browser-frame {
+            position: relative;
+            background: #1e293b;
+            border-radius: 12px;
+            padding-top: 0;
+            transform: rotateX(2deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 0 0 1px rgba(59, 130, 246, 0.2),
+                0 25px 80px -12px rgba(0, 0, 0, 0.25),
+                0 0 60px rgba(59, 130, 246, 0.15);
+            max-width: 900px;
+            margin: 0 auto 48px;
+        }
+
+        .browser-frame::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .browser-chrome {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+            border-radius: 12px 12px 0 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ef4444; }
+        .browser-dot.yellow { background: #eab308; }
+        .browser-dot.green { background: #22c55e; }
+
+        .browser-url {
+            flex: 1;
+            margin-left: 12px;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        .browser-content {
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        .browser-content img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .browser-frame:hover {
+            transform: rotateX(0deg) translateY(-8px) scale(1.02);
+            box-shadow:
+                0 0 0 1px rgba(59, 130, 246, 0.3),
+                0 40px 100px -20px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(59, 130, 246, 0.25);
+        }
+
+        .case-study-visual {
+            perspective: 1000px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .browser-frame {
+                transform: none;
+            }
+            .browser-frame:hover {
+                transform: none;
+            }
+            .browser-chrome {
+                padding: 10px 12px;
+            }
+            .browser-dot {
+                width: 10px;
+                height: 10px;
+            }
+            .browser-url {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+            }
+        }
+
         /* Scroll animations */
         .fade-in-up {
             opacity: 0;
@@ -735,7 +845,7 @@
                     <a href="index.html">Home</a>
                     <a href="stories.html" class="active">Stories</a>
                     <a href="about.html">About</a>
-                    <a href="index.html#book">Contact</a>
+                    <a href="index.html#contact">Contact</a>
                 </div>
             </div>
             <a href="https://calendly.com/zacharyliem/30min" class="nav-cta">Let's Talk</a>
@@ -996,6 +1106,22 @@
                 <p class="case-study-subtitle">Two connected systems that turned team management from chaos into clarity.</p>
             </div>
 
+            <div class="case-study-visual fade-in-up">
+                <div class="browser-frame">
+                    <div class="browser-chrome">
+                        <div class="browser-dots">
+                            <span class="browser-dot red"></span>
+                            <span class="browser-dot yellow"></span>
+                            <span class="browser-dot green"></span>
+                        </div>
+                        <div class="browser-url">admin.ztlsolutions.com</div>
+                    </div>
+                    <div class="browser-content">
+                        <img src="assets/admindashclean.png" alt="Admin Dashboard - Real-time operations management">
+                    </div>
+                </div>
+            </div>
+
             <div class="story-card problem-card fade-in-up">
                 <h3>
                     <span class="card-icon">
@@ -1155,7 +1281,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in-up').forEach((el) => {
+        document.querySelectorAll('.fade-in-up, .case-study-visual').forEach((el) => {
             observer.observe(el);
         });
 

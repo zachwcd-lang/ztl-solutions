@@ -165,55 +165,110 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            perspective: 1000px;
         }
 
-        .tool-screenshot {
+        /* Browser mockup frame */
+        .browser-frame {
+            position: relative;
+            background: #1e293b;
+            border-radius: 12px;
+            padding-top: 0;
+            transform: rotateX(2deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 0 0 1px rgba(59, 130, 246, 0.2),
+                0 25px 80px -12px rgba(0, 0, 0, 0.25),
+                0 0 60px rgba(59, 130, 246, 0.15);
+            animation: browserFloat 6s ease-in-out infinite;
+        }
+
+        .browser-frame::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .browser-chrome {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+            border-radius: 12px 12px 0 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ef4444; }
+        .browser-dot.yellow { background: #eab308; }
+        .browser-dot.green { background: #22c55e; }
+
+        .browser-url {
+            flex: 1;
+            margin-left: 12px;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        .browser-content {
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        .browser-content img {
             display: block;
-            max-width: 900px;
             width: 100%;
             height: auto;
-            border-radius: 12px;
-            box-shadow:
-                0 0 0 1px rgba(59, 130, 246, 0.1),
-                0 0 20px rgba(59, 130, 246, 0.15),
-                0 0 40px rgba(59, 130, 246, 0.1),
-                0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: screenshotFloat 6s ease-in-out infinite, screenshotGlow 3s ease-in-out infinite alternate;
         }
 
-        .tool-screenshot:hover {
-            transform: translateY(-8px) scale(1.01);
+        .browser-frame:hover {
+            transform: rotateX(0deg) translateY(-8px) scale(1.02);
             box-shadow:
                 0 0 0 1px rgba(59, 130, 246, 0.3),
-                0 0 40px rgba(59, 130, 246, 0.25),
-                0 0 80px rgba(59, 130, 246, 0.15),
-                0 35px 60px -15px rgba(0, 0, 0, 0.15);
-            animation: none;
+                0 40px 100px -20px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(59, 130, 246, 0.25);
         }
 
-        @keyframes screenshotFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes browserFloat {
+            0%, 100% { transform: rotateX(2deg) translateY(0); }
+            50% { transform: rotateX(2deg) translateY(-10px); }
         }
 
-        @keyframes screenshotGlow {
-            from {
-                box-shadow:
-                    0 0 0 1px rgba(59, 130, 246, 0.1),
-                    0 0 20px rgba(59, 130, 246, 0.1),
-                    0 0 40px rgba(59, 130, 246, 0.05),
-                    0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            }
-            to {
-                box-shadow:
-                    0 0 0 1px rgba(59, 130, 246, 0.2),
-                    0 0 30px rgba(59, 130, 246, 0.2),
-                    0 0 60px rgba(59, 130, 246, 0.12),
-                    0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            }
+        /* Fade in animation for hero visual */
+        .hero-visual.fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .hero-visual.fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
 
@@ -1318,10 +1373,25 @@
             }
             .hero-visual {
                 width: 100%;
+                perspective: none;
             }
-            .tool-screenshot {
-                max-width: 100%;
-                width: 100%;
+            .browser-frame {
+                transform: none;
+                animation: none;
+            }
+            .browser-frame:hover {
+                transform: none;
+            }
+            .browser-chrome {
+                padding: 10px 12px;
+            }
+            .browser-dot {
+                width: 10px;
+                height: 10px;
+            }
+            .browser-url {
+                font-size: 0.65rem;
+                padding: 4px 8px;
             }
         }
 
@@ -1419,8 +1489,20 @@
                     </a>
                     <p class="hero-note">30 min. No pitch. Just see if I can help.</p>
                 </div>
-                <div class="hero-visual">
-                    <img src="assets/new-label-grabber.png" alt="Label Grabber - Shipping label automation tool" class="tool-screenshot">
+                <div class="hero-visual fade-in-up">
+                    <div class="browser-frame">
+                        <div class="browser-chrome">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-url">admin.ztlsolutions.com</div>
+                        </div>
+                        <div class="browser-content">
+                            <img src="assets/admindashclean.png" alt="Admin Dashboard - Real-time operations management">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1800,6 +1882,12 @@
             el.dataset.delay = index % 3; // Stagger in groups of 3
             observer.observe(el);
         });
+
+        // Observe hero visual for fade-in
+        const heroVisual = document.querySelector('.hero-visual.fade-in-up');
+        if (heroVisual) {
+            observer.observe(heroVisual);
+        }
 
         // Add floating particles to hero
         const hero = document.querySelector('.hero');
