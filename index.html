@@ -1545,8 +1545,34 @@
             .build-flank {
                 display: none;
             }
+            /* Mobile hero flanking images - subtle background texture */
             .hero-flank {
-                display: none;
+                position: absolute;
+                width: 200px;
+                z-index: -1;
+            }
+            .hero-flank.visible {
+                opacity: 0.35;
+            }
+            .hero-flank img {
+                max-height: 280px;
+            }
+            .hero-flank-left {
+                left: -60px;
+                top: 20px;
+                transform: rotate(8deg);
+            }
+            .hero-flank-left::after {
+                width: 60%;
+            }
+            .hero-flank-right {
+                right: -60px;
+                bottom: 60px;
+                top: auto;
+                transform: rotate(-8deg);
+            }
+            .hero-flank-right::after {
+                width: 60%;
             }
         }
 
