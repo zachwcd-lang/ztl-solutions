@@ -274,16 +274,21 @@
 
         /* Hero flanking images */
         .hero-flank {
-            position: absolute;
-            width: 400px;
-            opacity: 0.88;
+            position: fixed;
+            width: 480px;
+            opacity: 0;
             pointer-events: none;
-            z-index: 2;
+            z-index: 50;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-flank.visible {
+            opacity: 0.9;
         }
 
         .hero-flank img {
-            position: sticky;
-            top: 120px;
             width: 100%;
             height: auto;
             border-radius: 12px;
@@ -294,10 +299,8 @@
         }
 
         .hero-flank-left {
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            transform: rotate(6deg);
+            left: -80px;
+            transform: translateY(-50%) rotate(6deg);
         }
 
         .hero-flank-left::after {
@@ -305,7 +308,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 45%;
+            width: 40%;
             height: 100%;
             background: linear-gradient(to left, rgba(240, 247, 255, 0.85), transparent);
             pointer-events: none;
@@ -313,10 +316,8 @@
         }
 
         .hero-flank-right {
-            right: 20px;
-            top: 0;
-            bottom: 0;
-            transform: rotate(-6deg);
+            right: -80px;
+            transform: translateY(-50%) rotate(-6deg);
         }
 
         .hero-flank-right::after {
@@ -324,7 +325,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 45%;
+            width: 40%;
             height: 100%;
             background: linear-gradient(to right, rgba(240, 247, 255, 0.85), transparent);
             pointer-events: none;
@@ -2025,6 +2026,29 @@
         if (heroVisual) {
             observer.observe(heroVisual);
         }
+
+        // Hero flanking images scroll behavior
+        const heroSection = document.querySelector('.hero');
+        const heroFlanks = document.querySelectorAll('.hero-flank');
+
+        function updateHeroFlanks() {
+            if (!heroSection || heroFlanks.length === 0) return;
+
+            const heroRect = heroSection.getBoundingClientRect();
+            const heroBottom = heroRect.bottom;
+            const heroTop = heroRect.top;
+
+            // Show when hero is in view, hide when scrolled past
+            if (heroTop < window.innerHeight && heroBottom > 100) {
+                heroFlanks.forEach(flank => flank.classList.add('visible'));
+            } else {
+                heroFlanks.forEach(flank => flank.classList.remove('visible'));
+            }
+        }
+
+        // Initial check and scroll listener
+        updateHeroFlanks();
+        window.addEventListener('scroll', updateHeroFlanks, { passive: true });
 
         // Add floating particles to hero
         const hero = document.querySelector('.hero');
