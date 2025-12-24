@@ -272,6 +272,61 @@
         }
 
 
+        /* Hero flanking images */
+        .hero-flank {
+            position: absolute;
+            width: 380px;
+            opacity: 0.75;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-flank img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow:
+                0 0 0 1px rgba(59, 130, 246, 0.15),
+                0 0 30px rgba(59, 130, 246, 0.12),
+                0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-flank-left {
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%) rotate(6deg);
+        }
+
+        .hero-flank-left::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(240, 247, 255, 0.9), transparent);
+            pointer-events: none;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .hero-flank-right {
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-6deg);
+        }
+
+        .hero-flank-right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(240, 247, 255, 0.9), transparent);
+            pointer-events: none;
+            border-radius: 12px 0 0 12px;
+        }
+
         /* Floating blobs */
         .hero-blob-1 {
             position: absolute;
@@ -1456,6 +1511,9 @@
             .build-flank {
                 display: none;
             }
+            .hero-flank {
+                display: none;
+            }
         }
 
         @media (max-width: 600px) {
@@ -1529,6 +1587,12 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-flank hero-flank-left">
+            <img src="assets/new-label-grabber.png" alt="">
+        </div>
+        <div class="hero-flank hero-flank-right">
+            <img src="assets/admindashclean.png" alt="">
+        </div>
         <div class="hero-blob-1"></div>
         <div class="hero-blob-2"></div>
         <div class="hero-blob-3"></div>
