@@ -275,13 +275,15 @@
         /* Hero flanking images */
         .hero-flank {
             position: absolute;
-            width: 380px;
-            opacity: 0.75;
+            width: 400px;
+            opacity: 0.88;
             pointer-events: none;
-            z-index: 0;
+            z-index: 2;
         }
 
         .hero-flank img {
+            position: sticky;
+            top: 120px;
             width: 100%;
             height: auto;
             border-radius: 12px;
@@ -292,9 +294,10 @@
         }
 
         .hero-flank-left {
-            left: -60px;
-            top: 50%;
-            transform: translateY(-50%) rotate(6deg);
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            transform: rotate(6deg);
         }
 
         .hero-flank-left::after {
@@ -302,17 +305,18 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 50%;
+            width: 45%;
             height: 100%;
-            background: linear-gradient(to left, rgba(240, 247, 255, 0.9), transparent);
+            background: linear-gradient(to left, rgba(240, 247, 255, 0.85), transparent);
             pointer-events: none;
             border-radius: 0 12px 12px 0;
         }
 
         .hero-flank-right {
-            right: -60px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-6deg);
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            transform: rotate(-6deg);
         }
 
         .hero-flank-right::after {
@@ -320,9 +324,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 50%;
+            width: 45%;
             height: 100%;
-            background: linear-gradient(to right, rgba(240, 247, 255, 0.9), transparent);
+            background: linear-gradient(to right, rgba(240, 247, 255, 0.85), transparent);
             pointer-events: none;
             border-radius: 12px 0 0 12px;
         }
