@@ -1005,6 +1005,298 @@
             }
         }
 
+        /* Featured Case Study */
+        .featured-case-study {
+            padding: 100px 0 120px;
+            background: linear-gradient(180deg, #ffffff 0%, #F4F8F4 50%, #E8F2E9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(87, 150, 95, 0.5), transparent);
+            box-shadow: 0 0 30px rgba(87, 150, 95, 0.3);
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #57965F 0%, #72AE7A 100%);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(87, 150, 95, 0.4);
+        }
+
+        .featured-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .featured-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .featured-content {
+            order: 1;
+        }
+
+        .featured-visual {
+            order: 2;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            width: 280px;
+            margin: 0 auto;
+        }
+
+        .phone-frame {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow:
+                0 0 0 2px #333,
+                0 25px 80px -12px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(87, 150, 95, 0.2);
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #1a1a1a;
+            border-radius: 0 0 14px 14px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            border-radius: 28px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .phone-screen img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .phone-glow {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(87, 150, 95, 0.25) 0%, transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Secondary visual */
+        .secondary-visual {
+            margin-top: 48px;
+            perspective: 1000px;
+        }
+
+        .secondary-frame {
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            transform: rotateX(4deg) rotateY(-2deg);
+            box-shadow:
+                0 0 0 1px rgba(87, 150, 95, 0.2),
+                0 20px 50px -10px rgba(0, 0, 0, 0.25);
+            transition: transform 0.4s ease;
+        }
+
+        .secondary-frame:hover {
+            transform: rotateX(0) rotateY(0);
+        }
+
+        .secondary-chrome {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 14px;
+            background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .secondary-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .secondary-dot.red { background: #ef4444; }
+        .secondary-dot.yellow { background: #eab308; }
+        .secondary-dot.green { background: #72AE7A; }
+
+        .secondary-content img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Featured cards grid */
+        .featured-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(87, 150, 95, 0.1);
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* View project button */
+        .view-project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #57965F 0%, #72AE7A 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(87, 150, 95, 0.4);
+            margin-top: 32px;
+        }
+
+        .view-project-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(87, 150, 95, 0.5);
+        }
+
+        .view-project-btn svg {
+            transition: transform 0.2s;
+        }
+
+        .view-project-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* What it proved section */
+        .proved-section {
+            margin-top: 48px;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(87, 150, 95, 0.08) 0%, rgba(147, 192, 152, 0.08) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(87, 150, 95, 0.15);
+        }
+
+        .proved-section h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .proved-section p {
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* Status badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #10b981;
+            margin-top: 24px;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 900px) {
+            .featured-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .featured-content {
+                order: 2;
+            }
+            .featured-visual {
+                order: 1;
+            }
+            .phone-mockup {
+                width: 240px;
+            }
+            .featured-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Scroll animations */
         .fade-in-up {
             opacity: 0;
@@ -1207,10 +1499,140 @@
     <div class="story-nav">
         <div class="container">
             <div class="story-nav-links">
+                <a href="#echo">Echo</a>
                 <a href="#label-grabber">Label Grabber</a>
                 <a href="#pick-lists">Pick Lists & Show Mixes</a>
                 <a href="#admin-dashboard">Admin Dashboard</a>
             </div>
+        </div>
+    </div>
+
+    <!-- Featured Case Study: Echo -->
+    <section class="featured-case-study" id="echo">
+        <div class="container">
+            <div class="featured-layout">
+                <div class="featured-content">
+                    <span class="featured-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                        Featured Project
+                    </span>
+                    <h2 class="case-study-title">Echo: Building My Own AI Chief of Staff</h2>
+                    <p class="case-study-subtitle" style="margin-top: 16px; max-width: 100%;">
+                        I run a high-volume e-commerce operation with constant ideas hitting me — better processes, new features, efficiency gains. Ideas would come in the car, during meetings, at 2am. I'd capture them in voice memos but never had time to go back and develop them. Great ideas were dying because life got in the way.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #334155; line-height: 1.7; margin-top: 20px;">
+                        What I needed wasn't better capture. I needed someone to ask the right follow-up questions, do the preliminary research, and keep ideas from slipping through the cracks. A chief of staff. But I couldn't afford one. <strong style="color: #57965F;">So I built Echo.</strong>
+                    </p>
+
+                    <a href="https://echo-psi-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="view-project-btn">
+                        Try Echo
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </a>
+
+                    <span class="status-badge">Working MVP — Used Daily</span>
+                </div>
+
+                <div class="featured-visual fade-in-up">
+                    <div class="phone-mockup">
+                        <div class="phone-glow"></div>
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="assets/echo.gif" alt="Echo app demo - Voice-first idea capture">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="secondary-visual">
+                        <div class="secondary-frame">
+                            <div class="secondary-chrome">
+                                <span class="secondary-dot red"></span>
+                                <span class="secondary-dot yellow"></span>
+                                <span class="secondary-dot green"></span>
+                            </div>
+                            <div class="secondary-content">
+                                <img src="assets/echo-onboarding.png" alt="Echo onboarding screen">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution Card -->
+            <div class="story-card solution-card fade-in-up" style="margin-top: 80px;">
+                <h3>
+                    <span class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </span>
+                    The Solution
+                </h3>
+                <p>A voice-first idea capture app. Hit the iPhone action button, say what's on your mind, and AI handles the rest — transcribing, categorizing, identifying what context is missing, and helping you develop ideas through conversation.</p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="featured-cards fade-in-up">
+                <div class="feature-card">
+                    <h4>Voice Recording + Transcription</h4>
+                    <p>OpenAI Whisper handles real-time transcription. Just talk — Echo captures every word.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>AI Complexity Detection</h4>
+                    <p>Automatically categorizes ideas as Simple, Medium, or Complex based on scope and effort.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Thread-Based Organization</h4>
+                    <p>Ideas build context over time. Each thread maintains history so you never start from scratch.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Smart Gap Identification</h4>
+                    <p>Echo asks what actually matters — surfacing the questions you haven't thought to ask yet.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>In-Thread AI Chat</h4>
+                    <p>Develop ideas through conversation. Claude helps you think through problems step by step.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Mobile-First Design</h4>
+                    <p>Frosted glass UI built for iPhone. Capture ideas wherever they hit you.</p>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="tech-section fade-in-up" style="margin-top: 48px;">
+                <span class="tech-section-label">Built With</span>
+                <div class="tech-tags">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">OAuth</span>
+                    <span class="tech-tag">OpenAI Whisper API</span>
+                    <span class="tech-tag">Claude API</span>
+                    <span class="tech-tag">Vercel</span>
+                </div>
+            </div>
+
+            <!-- What This Proved -->
+            <div class="proved-section fade-in-up">
+                <h4>What This Project Proved</h4>
+                <p>This was my first time implementing OAuth, building real database architecture, and integrating AI/LLM APIs into a product. I went from idea to working app in a weekend — not because it was simple, but because I was motivated to solve my own problem.</p>
+                <p style="margin-top: 16px;">Echo showed me I could build real software, not just spreadsheet automations. It's the project that bridged "ops guy who codes" to "builder."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="case-study-divider">
+        <div class="divider-dots">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
 
