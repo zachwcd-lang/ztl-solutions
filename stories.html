@@ -1046,72 +1046,59 @@
         }
 
         .featured-layout {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 80px;
-            align-items: center;
+            display: block;
         }
 
         .featured-content {
-            order: 1;
+            max-width: 700px;
         }
 
-        .featured-visual {
-            order: 2;
-        }
-
-        /* Clean image styles */
-        .featured-image {
+        /* Hero image - full width prominent */
+        .featured-hero-image {
             position: relative;
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto;
+            margin-top: 60px;
+            text-align: center;
         }
 
-        .featured-image img {
-            display: block;
+        .featured-hero-image img {
+            display: inline-block;
             width: 100%;
+            max-width: 600px;
             height: auto;
-            border-radius: 16px;
+            border-radius: 20px;
             box-shadow:
-                0 20px 60px -15px rgba(0, 0, 0, 0.25),
-                0 0 40px rgba(87, 150, 95, 0.1);
+                0 30px 80px -20px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(87, 150, 95, 0.15);
         }
 
-        .featured-image-glow {
+        .featured-hero-glow {
             position: absolute;
-            top: -40px;
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
-            width: 140%;
-            height: 180px;
+            width: 120%;
+            height: 250px;
             background: radial-gradient(ellipse, rgba(87, 150, 95, 0.2) 0%, transparent 70%);
-            filter: blur(40px);
+            filter: blur(50px);
             pointer-events: none;
             z-index: -1;
         }
 
-        /* Secondary image */
-        .secondary-image {
-            margin-top: 32px;
+        /* Inline demo image */
+        .inline-demo-image {
+            margin: 40px 0;
+            text-align: center;
         }
 
-        .secondary-image img {
-            display: block;
+        .inline-demo-image img {
+            display: inline-block;
             width: 100%;
+            max-width: 400px;
             height: auto;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow:
-                0 12px 40px -10px rgba(0, 0, 0, 0.2),
-                0 0 20px rgba(87, 150, 95, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .secondary-image img:hover {
-            transform: translateY(-4px);
-            box-shadow:
-                0 16px 50px -10px rgba(0, 0, 0, 0.25),
-                0 0 30px rgba(87, 150, 95, 0.12);
+                0 20px 50px -15px rgba(0, 0, 0, 0.25),
+                0 0 30px rgba(87, 150, 95, 0.1);
         }
 
         /* Featured cards grid */
@@ -1231,21 +1218,14 @@
         }
 
         @media (max-width: 900px) {
-            .featured-layout {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-            .featured-content {
-                order: 2;
-            }
-            .featured-visual {
-                order: 1;
-            }
-            .featured-image {
-                max-width: 280px;
-            }
             .featured-cards {
                 grid-template-columns: 1fr;
+            }
+            .featured-hero-image img {
+                max-width: 100%;
+            }
+            .inline-demo-image img {
+                max-width: 320px;
             }
         }
 
@@ -1490,15 +1470,10 @@
                     <span class="status-badge">Working MVP — Used Daily</span>
                 </div>
 
-                <div class="featured-visual fade-in-up">
-                    <div class="featured-image">
-                        <div class="featured-image-glow"></div>
-                        <img src="assets/echo-onboarding.png" alt="Echo app - Voice-first idea capture">
-                    </div>
-
-                    <div class="secondary-image">
-                        <img src="assets/echo.gif" alt="Echo app demo in action">
-                    </div>
+                <!-- Hero Image -->
+                <div class="featured-hero-image fade-in-up">
+                    <div class="featured-hero-glow"></div>
+                    <img src="assets/echo-onboarding.png" alt="Echo app - Welcome screen showing onboarding flow">
                 </div>
             </div>
 
@@ -1513,6 +1488,11 @@
                     The Solution
                 </h3>
                 <p>A voice-first idea capture app. Hit the iPhone action button, say what's on your mind, and AI handles the rest — transcribing, categorizing, identifying what context is missing, and helping you develop ideas through conversation.</p>
+            </div>
+
+            <!-- Demo GIF -->
+            <div class="inline-demo-image fade-in-up">
+                <img src="assets/echo.gif" alt="Echo app demo - capturing and developing ideas through voice">
             </div>
 
             <!-- Features Grid -->
@@ -1564,7 +1544,7 @@
                 <p style="margin-top: 16px;">Echo showed me I could build real software, not just spreadsheet automations. It's the project that bridged "ops guy who codes" to "builder."</p>
                 <p style="margin-top: 24px; font-style: normal; font-weight: 600; color: #0f172a;">
                     Think Echo would be useful? Use it completely free here →
-                    <a href="https://echo-psi-three.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #57965F; text-decoration: underline; text-underline-offset: 3px;">echo-psi-three.vercel.app</a>
+                    <a href="https://echo-psi-three.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #57965F; text-decoration: underline; text-underline-offset: 3px;">Echo</a>
                 </p>
             </div>
         </div>
