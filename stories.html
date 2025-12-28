@@ -1060,106 +1060,58 @@
             order: 2;
         }
 
-        /* Phone Mockup */
-        .phone-mockup {
+        /* Clean image styles */
+        .featured-image {
             position: relative;
-            width: 280px;
+            width: 100%;
+            max-width: 320px;
             margin: 0 auto;
         }
 
-        .phone-frame {
-            position: relative;
-            background: #1a1a1a;
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow:
-                0 0 0 2px #333,
-                0 25px 80px -12px rgba(0, 0, 0, 0.4),
-                0 0 60px rgba(87, 150, 95, 0.2);
-        }
-
-        .phone-frame::before {
-            content: '';
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 24px;
-            background: #1a1a1a;
-            border-radius: 0 0 14px 14px;
-            z-index: 10;
-        }
-
-        .phone-screen {
-            border-radius: 28px;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .phone-screen img {
+        .featured-image img {
             display: block;
             width: 100%;
             height: auto;
+            border-radius: 16px;
+            box-shadow:
+                0 20px 60px -15px rgba(0, 0, 0, 0.25),
+                0 0 40px rgba(87, 150, 95, 0.1);
         }
 
-        .phone-glow {
+        .featured-image-glow {
             position: absolute;
-            top: -50px;
+            top: -40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 150%;
-            height: 200px;
-            background: radial-gradient(ellipse, rgba(87, 150, 95, 0.25) 0%, transparent 70%);
+            width: 140%;
+            height: 180px;
+            background: radial-gradient(ellipse, rgba(87, 150, 95, 0.2) 0%, transparent 70%);
             filter: blur(40px);
             pointer-events: none;
             z-index: -1;
         }
 
-        /* Secondary visual */
-        .secondary-visual {
-            margin-top: 48px;
-            perspective: 1000px;
+        /* Secondary image */
+        .secondary-image {
+            margin-top: 32px;
         }
 
-        .secondary-frame {
-            background: #1e293b;
-            border-radius: 12px;
-            overflow: hidden;
-            transform: rotateX(4deg) rotateY(-2deg);
-            box-shadow:
-                0 0 0 1px rgba(87, 150, 95, 0.2),
-                0 20px 50px -10px rgba(0, 0, 0, 0.25);
-            transition: transform 0.4s ease;
-        }
-
-        .secondary-frame:hover {
-            transform: rotateX(0) rotateY(0);
-        }
-
-        .secondary-chrome {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 10px 14px;
-            background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .secondary-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .secondary-dot.red { background: #ef4444; }
-        .secondary-dot.yellow { background: #eab308; }
-        .secondary-dot.green { background: #72AE7A; }
-
-        .secondary-content img {
+        .secondary-image img {
             display: block;
             width: 100%;
             height: auto;
+            border-radius: 12px;
+            box-shadow:
+                0 12px 40px -10px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(87, 150, 95, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .secondary-image img:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 16px 50px -10px rgba(0, 0, 0, 0.25),
+                0 0 30px rgba(87, 150, 95, 0.12);
         }
 
         /* Featured cards grid */
@@ -1289,8 +1241,8 @@
             .featured-visual {
                 order: 1;
             }
-            .phone-mockup {
-                width: 240px;
+            .featured-image {
+                max-width: 280px;
             }
             .featured-cards {
                 grid-template-columns: 1fr;
@@ -1539,26 +1491,13 @@
                 </div>
 
                 <div class="featured-visual fade-in-up">
-                    <div class="phone-mockup">
-                        <div class="phone-glow"></div>
-                        <div class="phone-frame">
-                            <div class="phone-screen">
-                                <img src="assets/echo.gif" alt="Echo app demo - Voice-first idea capture">
-                            </div>
-                        </div>
+                    <div class="featured-image">
+                        <div class="featured-image-glow"></div>
+                        <img src="assets/echo-onboarding.png" alt="Echo app - Voice-first idea capture">
                     </div>
 
-                    <div class="secondary-visual">
-                        <div class="secondary-frame">
-                            <div class="secondary-chrome">
-                                <span class="secondary-dot red"></span>
-                                <span class="secondary-dot yellow"></span>
-                                <span class="secondary-dot green"></span>
-                            </div>
-                            <div class="secondary-content">
-                                <img src="assets/echo-onboarding.png" alt="Echo onboarding screen">
-                            </div>
-                        </div>
+                    <div class="secondary-image">
+                        <img src="assets/echo.gif" alt="Echo app demo in action">
                     </div>
                 </div>
             </div>
